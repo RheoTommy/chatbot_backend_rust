@@ -1,4 +1,4 @@
 pub mod conversation;
 pub mod message;
 
-pub use conversation::ConverationRepository;
+pub use conversation::ConversationRepository;

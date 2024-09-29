@@ -1,8 +1,7 @@
 use crate::domain::entities::id::Id;
 use crate::domain::entities::User;
-use serde::{Deserialize, Serialize};
-use std::time::SystemTime;
 use chrono::{DateTime, Utc};
+use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub struct Conversation {

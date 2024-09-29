@@ -230,6 +230,7 @@ dependencies = [
  "anyhow",
  "firestore",
  "itertools",
+ "serde",
  "thiserror",
  "uuid",
 ]

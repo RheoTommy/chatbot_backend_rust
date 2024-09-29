@@ -1,22 +1,20 @@
-use crate::domain::entities::conversation::ConversationId;
+use crate::domain::entities::id::Id;
+use crate::domain::entities::Conversation;
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
-use std::time::SystemTime;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct MessageId(uuid::Uuid);
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub enum MessageFrom {
-    User(uuid::Uuid),
+    User(String),
     Bot,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub struct Message {
-    pub id: MessageId,
-    pub conversation_id: ConversationId,
+    pub id: Id<Message>,
+    pub conversation_id: Id<Conversation>,
     pub from: MessageFrom,
     pub content: String,
-    pub created_at: SystemTime,
-    pub updated_at: SystemTime,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
 }

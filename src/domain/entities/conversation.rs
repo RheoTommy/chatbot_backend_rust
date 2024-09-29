@@ -1,15 +1,14 @@
-use crate::domain::entities::user::UserId;
+use crate::domain::entities::id::Id;
+use crate::domain::entities::User;
 use serde::{Deserialize, Serialize};
 use std::time::SystemTime;
+use chrono::{DateTime, Utc};
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct ConversationId(uuid::Uuid);
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 pub struct Conversation {
-    pub id: ConversationId,
-    pub user_id: UserId,
+    pub id: Id<Conversation>,
+    pub user_id: Id<User>,
     pub title: String,
-    pub created_at: SystemTime,
-    pub updated_at: SystemTime,
+    pub created_at: DateTime<Utc>,
+    pub updated_at: DateTime<Utc>,
 }

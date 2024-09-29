@@ -10,3 +10,4 @@ itertools = "0.13.0"
 thiserror = "1.0.64"
 uuid = "1.10.0"
 serde = { version = "1.0.210", features = ["derive"] }
+derive-new = "0.7.0"

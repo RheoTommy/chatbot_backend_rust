@@ -8,6 +8,9 @@ anyhow = "1.0.89"
 firestore = "0.43.1"
 itertools = "0.13.0"
 thiserror = "1.0.64"
-uuid = "1.10.0"
+uuid = { version = "1.10.0", features = ["v4", "serde"] }
 serde = { version = "1.0.210", features = ["derive"] }
 derive-new = "0.7.0"
+futures-util = "0.3.30"
+tokio = "1.40.0"
+chrono = "0.4.38"

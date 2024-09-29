@@ -1,5 +1,6 @@
 pub mod conversation;
+pub mod errors;
 pub mod message;
 
-pub use conversation::ConversationRepository;
-pub use message::MessageRepository;
+pub use conversation::*;
+pub use message::*;

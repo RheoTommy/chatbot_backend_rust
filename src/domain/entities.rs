@@ -1,5 +1,7 @@
-pub(crate) mod conversation;
-pub(crate) mod message;
+pub mod conversation;
+pub mod message;
+pub mod user;
 
-pub use conversation::Conversation;
-pub use message::Message;
+pub use conversation::*;
+pub use message::*;
+pub use user::*;

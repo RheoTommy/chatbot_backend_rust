@@ -1,9 +1,15 @@
-use crate::domain::entities::Message;
-use anyhow::Error;
+use crate::domain::entities::{ConversationId, Message, MessageId};
+use crate::domain::repositories::errors::RepositoryError;
 
 pub trait MessageRepository {
-    fn get(&self, id: uuid::Uuid) -> Result<Message, Error>;
-    fn put(&self, message: Message) -> Result<(), Error>;
-    fn delete(&self, id: uuid::Uuid) -> Result<(), Error>;
-    fn query_by_conversation_id(&self, conversation_id: uuid::Uuid) -> Result<Vec<Message>, Error>;
+    async fn get(&self, id: MessageId) -> Result<Message, RepositoryError>;
+
+    async fn put(&self, message: Message) -> Result<Message, RepositoryError>;
+
+    async fn delete(&self, id: MessageId) -> Result<Message, RepositoryError>;
+
+    async fn query_by_conversation_id(
+        &self,
+        conversation_id: ConversationId,
+    ) -> Result<Vec<Message>, RepositoryError>;
 }
